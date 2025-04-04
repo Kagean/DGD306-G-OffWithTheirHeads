@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera_Follow : MonoBehaviour
+public class camera_follow : MonoBehaviour
 {
     private Vector3 offset = new Vector3(0f, 7.7f, -18f); 
     private float smoothTime = 0.25f;
