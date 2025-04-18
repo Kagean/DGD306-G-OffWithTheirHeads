@@ -4,29 +4,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class start_game : MonoBehaviour
 {
-    private bool lock_startgame = true;
+    private bool is_nolock = true;
     private float timer = 0;
-    public GameObject prefab_fadeout;
     void Start()
     {
         
     }
     void Update()
     {
-        if (lock_startgame)
+        if (is_nolock)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                lock_startgame = false;
-                Instantiate(prefab_fadeout, transform.position + new Vector3(0, 0, 0), transform.rotation);
-            }
-        }
-        else
-        {
-            timer += Time.deltaTime;
-            if (timer >= 1f)
-            {
-                SceneManager.LoadScene("menu_selection");
+                GameObject object_prefab_fade = GameObject.Find("prefab_fade");
+                prefab_fade script_prefab_fade = object_prefab_fade.GetComponent<prefab_fade>();
+                script_prefab_fade.fade_out = true;
             }
         }
     }
