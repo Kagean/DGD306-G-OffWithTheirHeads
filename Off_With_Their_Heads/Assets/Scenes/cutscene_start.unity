@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_coop: 0
-  count_coin: 3
+  count_credit: 3
 --- !u!4 &1060815414
 Transform:
   m_ObjectHideFlags: 0

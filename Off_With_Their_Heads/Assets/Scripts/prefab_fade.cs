@@ -6,7 +6,7 @@ public class prefab_fade : MonoBehaviour
 {
     SpriteRenderer spriterenderer;
     private bool fade_in = true;
-    private float timer = 0;
+    private float timer_fade = 0;
     public bool fade_out = false;
     public string level_next;
     void Start()
@@ -17,49 +17,49 @@ public class prefab_fade : MonoBehaviour
     {
         if (fade_in)
         {
-            timer += Time.deltaTime;
-            if (0.5f > timer && timer >= 0.25f)
+            timer_fade += Time.deltaTime;
+            if (0.5f > timer_fade && timer_fade >= 0.25f)
             {
-                SetAlpha(0.75f);
+                Set_Alpha(0.75f);
             }
-            else if (0.75f > timer && timer >= 0.5f)
+            else if (0.75f > timer_fade && timer_fade >= 0.5f)
             {
-                SetAlpha(0.5f);
+                Set_Alpha(0.5f);
             }
-            else if (1f > timer && timer >= 0.75f)
+            else if (1f > timer_fade && timer_fade >= 0.75f)
             {
-                SetAlpha(0.25f);
+                Set_Alpha(0.25f);
             }
-            else if (timer >= 1f)
+            else if (timer_fade >= 1f)
             {
-                SetAlpha(0);
+                Set_Alpha(0);
                 fade_in = false;
-                timer = 0;
+                timer_fade = 0;
             }
         }
-        if (fade_out)
+        else if (fade_out)
         {
-            timer += Time.deltaTime;
-            if (0.5f > timer && timer >= 0.25f)
+            timer_fade += Time.deltaTime;
+            if (0.5f > timer_fade && timer_fade >= 0.25f)
             {
-                SetAlpha(0.25f);
+                Set_Alpha(0.25f);
             }
-            else if (0.75f > timer && timer >= 0.5f)
+            else if (0.75f > timer_fade && timer_fade >= 0.5f)
             {
-                SetAlpha(0.5f);
+                Set_Alpha(0.5f);
             }
-            else if (1f > timer && timer >= 0.75f)
+            else if (1f > timer_fade && timer_fade >= 0.75f)
             {
-                SetAlpha(0.75f);
+                Set_Alpha(0.75f);
             }
-            else if (timer >= 1f)
+            else if (timer_fade >= 1f)
             {
-                SetAlpha(1f);
+                Set_Alpha(1f);
                 SceneManager.LoadScene(level_next);
             }
         }
     }
-    void SetAlpha(float alpha)
+    void Set_Alpha(float alpha)
     {
         Color color = spriterenderer.color;
         color.a = alpha;
