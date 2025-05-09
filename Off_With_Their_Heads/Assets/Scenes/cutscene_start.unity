@@ -390,6 +390,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is_coop: 0
   count_credit: 3
+  data_p1: []
+  data_p2: []
 --- !u!4 &1060815414
 Transform:
   m_ObjectHideFlags: 0
@@ -563,5 +565,5 @@ SceneRoots:
   - {fileID: 1060815414}
   - {fileID: 1185928623}
   - {fileID: 1334162888}
-  - {fileID: 613370898}
   - {fileID: 318765870}
+  - {fileID: 613370898}

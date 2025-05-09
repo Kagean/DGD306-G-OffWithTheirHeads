@@ -12,12 +12,14 @@ public class menu_selection_indicator_p2 : MonoBehaviour
     {
         var script_manager_game = GameObject.Find("manager_game").GetComponent<manager_game>();
         is_coop = script_manager_game.is_coop;
-        var script_menu_selection_select = GameObject.Find("menu_selection_select").GetComponent<menu_selection_select>();
-        index_col_p2 = script_menu_selection_select.index_col_p2;
-        index_row = script_menu_selection_select.index_row;
+        SpriteRenderer spriterenderer = GetComponent<SpriteRenderer>();
+        spriterenderer.enabled = false;
     }
     void Update()
     {
+        var script_menu_selection_select = GameObject.Find("menu_selection_select").GetComponent<menu_selection_select>();
+        index_col_p2 = script_menu_selection_select.index_col_p2;
+        index_row = script_menu_selection_select.index_row;
         if (is_coop)
         {
             if (index_col_indicator == index_col_p2 && index_row_indicator == index_row)
