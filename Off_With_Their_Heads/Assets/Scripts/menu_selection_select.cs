@@ -155,17 +155,21 @@ public class menu_selection_select : MonoBehaviour
                 count_enter = 0;
                 index_head_p1 = index_col_p1;
                 index_head_p2 = index_col_p2;
+                index_row += 1;
+                Check_Head(ref index_head_p1, ref index_col_p1, 1);
+                Check_Head(ref index_head_p2, ref index_col_p2, 1);
                 index_col_p1 = 0;
                 index_col_p2 = 0;
-                index_row += 1;
                 Check_Head(ref index_head_p1, ref index_col_p1, 1);
                 Check_Head(ref index_head_p2, ref index_col_p2, 1);
             }
         }
         else
         {
-            index_col_p1 = 0;
+            index_head_p1 = index_col_p1;
             index_row += 1;
+            Check_Head(ref index_head_p1, ref index_col_p1, 1);
+            index_col_p1 = 0;
             Check_Head(ref index_head_p1, ref index_col_p1, 1);
         }
     }

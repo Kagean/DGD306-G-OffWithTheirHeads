@@ -45,7 +45,9 @@ public class menu_selection_indicator_p2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             is_checked = false;
-            Instantiate(sprite_selection_indicator_bg_p2, transform.position, Quaternion.identity);
+            SpriteRenderer spriterenderer = GetComponent<SpriteRenderer>();
+            spriterenderer.enabled = false;
+            Instantiate(sprite_selection_indicator_bg_p2, transform.position, transform.rotation);
         }
     }
 }
