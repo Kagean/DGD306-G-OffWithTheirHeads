@@ -46,16 +46,12 @@ public class menu_selection_select : MonoBehaviour
             if (Input.GetKeyDown(left))
             {
                 index_col_p -= 1;
-                Check_Head(ref index_head_p, ref index_col_p, -1);
-                Check_Index(ref index_col_p);
-                Check_Head(ref index_head_p, ref index_col_p, -1);
+                Check_Index(ref index_head_p, ref index_col_p, -1);
             }
             else if (Input.GetKeyDown(right))
             {
                 index_col_p += 1;
-                Check_Head(ref index_head_p, ref index_col_p, 1);
-                Check_Index(ref index_col_p);
-                Check_Head(ref index_head_p, ref index_col_p, 1);
+                Check_Index(ref index_head_p, ref index_col_p, 1);
             }
             else if (Input.GetKeyDown(select))
             {
@@ -74,8 +70,9 @@ public class menu_selection_select : MonoBehaviour
             }
         }
     }
-    void Check_Index(ref int index_col_p)
+    void Check_Index(ref int index_head_p, ref int index_col_p, int offset)
     {
+        Check_Head(ref index_head_p, ref index_col_p, offset);
         if (2 > index_row)
         {
             if (index_col_p > 2)
@@ -98,6 +95,7 @@ public class menu_selection_select : MonoBehaviour
                 index_col_p = 1;
             }
         }
+        Check_Head(ref index_head_p, ref index_col_p, offset);
     }
     void Write_Selection(ref int index_col_p, ref List<string> data_p)
     {

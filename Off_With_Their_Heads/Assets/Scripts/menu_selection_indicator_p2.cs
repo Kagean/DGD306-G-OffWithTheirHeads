@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 public class menu_selection_indicator_p2 : MonoBehaviour
 {
+    private bool is_checked = true;
     private bool is_coop;
     private int index_col_p2;
     private int index_row;
+    public GameObject sprite_selection_indicator_bg_p2;
     public int index_col_indicator;
     public int index_row_indicator;
     void Start()
@@ -17,21 +19,33 @@ public class menu_selection_indicator_p2 : MonoBehaviour
     }
     void Update()
     {
-        var script_menu_selection_select = GameObject.Find("menu_selection_select").GetComponent<menu_selection_select>();
-        index_col_p2 = script_menu_selection_select.index_col_p2;
-        index_row = script_menu_selection_select.index_row;
-        if (is_coop)
+        if (is_checked)
         {
-            if (index_col_indicator == index_col_p2 && index_row_indicator == index_row)
+            var script_menu_selection_select = GameObject.Find("menu_selection_select").GetComponent<menu_selection_select>();
+            index_col_p2 = script_menu_selection_select.index_col_p2;
+            index_row = script_menu_selection_select.index_row;
+            if (is_coop)
             {
-                SpriteRenderer spriterenderer = GetComponent<SpriteRenderer>();
-                spriterenderer.enabled = true;
+                if (index_col_indicator == index_col_p2 && index_row_indicator == index_row)
+                {
+                    SpriteRenderer spriterenderer = GetComponent<SpriteRenderer>();
+                    spriterenderer.enabled = true;
+                    Instantiate_Indicator();
+                }
+                else
+                {
+                    SpriteRenderer spriterenderer = GetComponent<SpriteRenderer>();
+                    spriterenderer.enabled = false;
+                }
             }
-            else
-            {
-                SpriteRenderer spriterenderer = GetComponent<SpriteRenderer>();
-                spriterenderer.enabled = false;
-            }
+        }
+    }
+    void Instantiate_Indicator()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            is_checked = false;
+            Instantiate(sprite_selection_indicator_bg_p2, transform.position, Quaternion.identity);
         }
     }
 }
