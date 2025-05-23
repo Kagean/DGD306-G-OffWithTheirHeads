@@ -105,10 +105,10 @@ public class menu_selection_select : MonoBehaviour
                 switch (index_col_p)
                 {
                     case 0:
-                        data_p.Add("head_elf");
+                        data_p.Add("head_dwarf");
                         break;
                     case 1:
-                        data_p.Add("head_dwarf");
+                        data_p.Add("head_elf");
                         break;
                     case 2:
                         data_p.Add("head_goblin");
@@ -119,10 +119,10 @@ public class menu_selection_select : MonoBehaviour
                 switch (index_col_p)
                 {
                     case 0:
-                        data_p.Add("body_elf");
+                        data_p.Add("body_dwarf");
                         break;
                     case 1:
-                        data_p.Add("body_dwarf");
+                        data_p.Add("body_elf");
                         break;
                     case 2:
                         data_p.Add("body_goblin");
@@ -133,10 +133,10 @@ public class menu_selection_select : MonoBehaviour
                 switch (index_col_p)
                 {
                     case 0:
-                        data_p.Add("weapon_crossbow");
+                        data_p.Add("limbs_crossbow");
                         break;
                     case 1:
-                        data_p.Add("weapon_cannon");
+                        data_p.Add("limbs_cannon");
                         break;
                 }
                 break;

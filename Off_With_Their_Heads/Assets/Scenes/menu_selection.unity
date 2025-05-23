@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 724165279}
   - component: {fileID: 724165278}
   m_Layer: 0
-  m_Name: sprite_menu_selection
+  m_Name: sprite_bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1491,8 +1491,8 @@ SceneRoots:
   - {fileID: 951622608}
   - {fileID: 1685161682}
   - {fileID: 724165279}
-  - {fileID: 1552293195}
   - {fileID: 1466579128}
+  - {fileID: 1552293195}
   - {fileID: 821690442}
   - {fileID: 1222087833}
   - {fileID: 826179157}
