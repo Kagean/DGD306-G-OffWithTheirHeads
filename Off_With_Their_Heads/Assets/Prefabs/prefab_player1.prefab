@@ -119,6 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0138b694df44f49bc3c8a20bca0f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animation_flip: 0
+  animation_change: 0
+  animation_state: 
   index: 2
   data_p1: []
 --- !u!1 &3418126313665810497
@@ -240,6 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0138b694df44f49bc3c8a20bca0f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animation_flip: 0
+  animation_change: 0
+  animation_state: 
   index: 1
   data_p1: []
 --- !u!1 &5067877169855152822
@@ -361,6 +367,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0138b694df44f49bc3c8a20bca0f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animation_flip: 0
+  animation_change: 0
+  animation_state: 
   index: 0
   data_p1: []
 --- !u!1 &7582722649303623736
@@ -412,6 +421,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d82c6d18da5b245b525e6d8fc62791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidbody: {fileID: 4113756112290626881}
+  animation_flip: 0
+  animation_change: 0
+  animation_state: 
   health: 3
   data_p1: []
 --- !u!61 &5958566891448526519
@@ -457,7 +470,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64, y: 1.28}
   m_EdgeRadius: 0
 --- !u!50 &4113756112290626881
 Rigidbody2D:

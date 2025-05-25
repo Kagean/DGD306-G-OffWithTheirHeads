@@ -6,10 +6,12 @@ public class prefab_player1 : MonoBehaviour
     private float speed_attack;
     private float speed_movement = 8f;
     private float timer = 0;
-    public int change_animation = 0;
+    public Rigidbody2D rigidbody;
+    public bool animation_flip = false;
+    public int animation_change = 0;
+    public string animation_state;
     public int health = 3;
     public List<string> data_p1 = new List<string>();
-    public string state_animation;
     void Start()
     {
         var script_manager_game = GameObject.Find("manager_game").GetComponent<manager_game>();
@@ -24,15 +26,29 @@ public class prefab_player1 : MonoBehaviour
         }
         Set_Stats(1);
         Set_Stats(0);
+        animation_state = "_idle";
     }
     void Update()
     {
-        state_animation = "_idle";
-        timer += Time.deltaTime;
+        if (Input.GetKey(KeyCode.A))
+        {
+            rigidbody.velocity = Vector2.left * speed_movement;
+            animation_flip = true;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            rigidbody.velocity = Vector2.right * speed_movement;
+            animation_flip = false;
+        }
+        else
+        {
+            rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
+        }
         if (timer >= speed_attack)
         {
             timer = 0;
         }
+        timer += Time.deltaTime;
     }
     void Set_Stats(int index)
     {

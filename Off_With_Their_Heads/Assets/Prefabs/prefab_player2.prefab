@@ -119,6 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9b078df4b6059488b6e979d043cd22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animation_flip: 0
+  animation_change: 0
+  animation_state: 
   index: 0
   data_p2: []
 --- !u!1 &90495971287419413
@@ -130,9 +133,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6776358078612877948}
+  - component: {fileID: 2835501869257826890}
   - component: {fileID: 2256766222471902577}
   - component: {fileID: 3071534214676286818}
-  - component: {fileID: 2835501869257826890}
   m_Layer: 0
   m_Name: prefab_player2
   m_TagString: Untagged
@@ -158,6 +161,24 @@ Transform:
   - {fileID: 2814114288828585715}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2835501869257826890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90495971287419413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72149d3e5055dee44a101b35996b31ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 3071534214676286818}
+  animation_flip: 0
+  animation_change: 0
+  animation_state: 
+  health: 3
+  data_p2: []
 --- !u!61 &2256766222471902577
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -201,7 +222,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64, y: 1.28}
   m_EdgeRadius: 0
 --- !u!50 &3071534214676286818
 Rigidbody2D:
@@ -230,20 +251,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &2835501869257826890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90495971287419413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72149d3e5055dee44a101b35996b31ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  data_p2: []
 --- !u!1 &7303083191874786476
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +370,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9b078df4b6059488b6e979d043cd22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animation_flip: 0
+  animation_change: 0
+  animation_state: 
   index: 1
   data_p2: []
 --- !u!1 &8066437530004001264
@@ -484,5 +494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9b078df4b6059488b6e979d043cd22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animation_flip: 0
+  animation_change: 0
+  animation_state: 
   index: 2
   data_p2: []
