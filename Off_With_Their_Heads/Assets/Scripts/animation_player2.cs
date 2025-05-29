@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class animation_player2 : MonoBehaviour
 {
-    private Animator animator;
-    private SpriteRenderer spriterenderer;
+    public Animator animator;
+    public SpriteRenderer spriterenderer;
     public bool animation_flip;
     public int animation_change;
     public string animation_state;
@@ -14,17 +14,19 @@ public class animation_player2 : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         spriterenderer = GetComponent<SpriteRenderer>();
-        var script_manager_game = GameObject.Find("manager_game").GetComponent<manager_game>();
-        data_p2 = script_manager_game.data_p2;
-        var script_prefab_player2 = GameObject.Find("prefab_player2(Clone)").GetComponent<prefab_player2>();
-        animation_flip = script_prefab_player2.animation_flip;
-        animation_change = script_prefab_player2.animation_change;
-        animation_state = script_prefab_player2.animation_state;
+        var manager_game_script = GameObject.Find("manager_game").GetComponent<manager_game>();
+        data_p2 = manager_game_script.data_p2;
+        var prefab_player2_script = GameObject.Find("prefab_player2(Clone)").GetComponent<prefab_player2>();
+        animation_flip = prefab_player2_script.animation_flip;
+        animation_change = prefab_player2_script.animation_change;
+        animation_state = prefab_player2_script.animation_state;
     }
     void Update()
     {
-        var script_prefab_player2 = GameObject.Find("prefab_player2(Clone)").GetComponent<prefab_player2>();
-        animation_flip = script_prefab_player2.animation_flip;
+        var prefab_player2_script = GameObject.Find("prefab_player2(Clone)").GetComponent<prefab_player2>();
+        animation_flip = prefab_player2_script.animation_flip;
+        animation_change = prefab_player2_script.animation_change;
+        animation_state = prefab_player2_script.animation_state;
         if (animation_flip)
         {
             spriterenderer.flipX = true;
@@ -35,7 +37,7 @@ public class animation_player2 : MonoBehaviour
         }
         if (3 > animation_change)
         {
-            script_prefab_player2.animation_change += 1;
+            prefab_player2_script.animation_change += 1;
             animation_change += 1;
             animator.CrossFade(data_p2[index] + animation_state, 0f);
         }

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 public class prefab_player1 : MonoBehaviour
 {
+    private bool lock_key = false;
+    private bool is_ground = false;
     private float speed_attack;
     private float speed_movement = 8f;
-    private float timer = 0;
+    private float timer_attack = 0;
+    public Collider2D collider;
     public Rigidbody2D rigidbody;
     public bool animation_flip = false;
     public int animation_change = 0;
@@ -14,8 +17,10 @@ public class prefab_player1 : MonoBehaviour
     public List<string> data_p1 = new List<string>();
     void Start()
     {
-        var script_manager_game = GameObject.Find("manager_game").GetComponent<manager_game>();
-        data_p1 = script_manager_game.data_p1;
+        collider = GetComponent<Collider2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
+        var manager_game_script = GameObject.Find("manager_game").GetComponent<manager_game>();
+        data_p1 = manager_game_script.data_p1;
         if (data_p1[2].Contains("cannon"))
         {
             speed_attack = 1000f;
@@ -26,29 +31,63 @@ public class prefab_player1 : MonoBehaviour
         }
         Set_Stats(1);
         Set_Stats(0);
-        animation_state = "_idle";
+        animation_state = "_jump";
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        float joystick1_x = Input.GetAxis("joystick1_x");
+        if (Input.GetKey(KeyCode.A) || -0.5f > joystick1_x)
         {
-            rigidbody.velocity = Vector2.left * speed_movement;
-            animation_flip = true;
+            rigidbody.velocity = new Vector2(-speed_movement, rigidbody.velocity.y);
+            if (lock_key)
+            {
+                lock_key = false;
+                animation_flip = true;
+                animation_change = 0;
+                animation_state = "_walk";
+            }
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) || joystick1_x > 0.5f)
         {
-            rigidbody.velocity = Vector2.right * speed_movement;
-            animation_flip = false;
+            rigidbody.velocity = new Vector2(speed_movement, rigidbody.velocity.y);
+            if (lock_key)
+            {
+                lock_key = false;
+                animation_flip = false;
+                animation_change = 0;
+                animation_state = "_walk";
+            }
         }
         else
         {
             rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
+            if (!lock_key)
+            {
+                lock_key = true;
+                animation_change = 0;
+                animation_state = "_idle";
+            }
         }
-        if (timer >= speed_attack)
+        if (!is_ground)
         {
-            timer = 0;
+            animation_change = 0;
+            animation_state = "_jump";
         }
-        timer += Time.deltaTime;
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Joystick1Button1))
+        {
+            if (is_ground)
+            {
+                rigidbody.velocity = Vector2.up * 8f;
+            }
+        }
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.Joystick1Button0))
+        {
+            if (timer_attack >= speed_attack)
+            {
+                timer_attack = 0;
+            }
+        }
+        timer_attack += Time.deltaTime;
     }
     void Set_Stats(int index)
     {
@@ -63,6 +102,30 @@ public class prefab_player1 : MonoBehaviour
         else
         {
             speed_movement += 4f;
+        }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            is_ground = true;
+            if (Mathf.Abs(rigidbody.velocity.x) >= 0.4f)
+            {
+                animation_change = 0;
+                animation_state = "_walk";
+            }
+            else
+            {
+                animation_change = 0;
+                animation_state = "_idle";
+            }
+        }
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            is_ground = false;
         }
     }
 }
