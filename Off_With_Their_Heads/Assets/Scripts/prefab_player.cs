@@ -12,8 +12,8 @@ public class prefab_player : MonoBehaviour
         is_coop = script_manager_game.is_coop;
         if (is_coop)
         {
-            Instantiate(prefab_player1, transform.position + new Vector3(0.64f, 0, 0), transform.rotation);
-            Instantiate(prefab_player2, transform.position + new Vector3(-0.64f, 0, 0), transform.rotation);
+            Instantiate(prefab_player1, transform.position + new Vector3(0.32f, 0, 0), transform.rotation);
+            Instantiate(prefab_player2, transform.position + new Vector3(-0.32f, 0, 0), transform.rotation);
         }
         else
         {

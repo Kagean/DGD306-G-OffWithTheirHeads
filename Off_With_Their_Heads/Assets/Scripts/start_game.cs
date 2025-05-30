@@ -6,11 +6,11 @@ public class start_game : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button7))
         {
             manager_prefab_fade();
         }
-        else if (Input.GetKeyDown(KeyCode.Return))
+        else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick2Button7))
         {
             manager_prefab_fade();
             var script_manager_game = GameObject.Find("manager_game").GetComponent<manager_game>();

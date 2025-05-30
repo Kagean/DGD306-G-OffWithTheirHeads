@@ -16,44 +16,46 @@ public class menu_selection_select : MonoBehaviour
     public List<string> data_p2 = new List<string>();
     void Start()
     {
-        var script_manager_game = GameObject.Find("manager_game").GetComponent<manager_game>();
-        is_coop = script_manager_game.is_coop;
+        var manager_game_script = GameObject.Find("manager_game").GetComponent<manager_game>();
+        is_coop = manager_game_script.is_coop;
     }
     void Update()
     {
+        float joystick1_x = Input.GetAxisRaw("joystick1_x");
+        float joystick2_x = Input.GetAxisRaw("joystick2_x");
         if (is_coop)
         {
-            Control_Selection(KeyCode.A, KeyCode.D, KeyCode.Space, ref lock_p1, ref index_head_p1, ref index_col_p1, ref data_p1);
-            Control_Selection(KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.Return, ref lock_p2, ref index_head_p2, ref index_col_p2, ref data_p2);
+            Control_Selection(joystick1_x, KeyCode.A, KeyCode.D, KeyCode.Space, KeyCode.Joystick1Button7, ref lock_p1, ref index_head_p1, ref index_col_p1, ref data_p1);
+            Control_Selection(joystick2_x, KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.Return, KeyCode.Joystick2Button7, ref lock_p2, ref index_head_p2, ref index_col_p2, ref data_p2);
         }
         else
         {
-            Control_Selection(KeyCode.A, KeyCode.D, KeyCode.Space, ref lock_p1, ref index_head_p1, ref index_col_p1, ref data_p1);
+            Control_Selection(joystick1_x, KeyCode.A, KeyCode.D, KeyCode.Space, KeyCode.Joystick1Button7, ref lock_p1, ref index_head_p1, ref index_col_p1, ref data_p1);
         }
         if (index_row > 2)
         {
-            var script_prefab_fade = GameObject.Find("prefab_fade").GetComponent<prefab_fade>();
-            script_prefab_fade.fade_out = true;
-            var script_manager_game = GameObject.Find("manager_game").GetComponent<manager_game>();
-            script_manager_game.data_p1 = data_p1;
-            script_manager_game.data_p2 = data_p2;
+            var prefab_fade_script = GameObject.Find("prefab_fade").GetComponent<prefab_fade>();
+            prefab_fade_script.fade_out = true;
+            var manager_game_script = GameObject.Find("manager_game").GetComponent<manager_game>();
+            manager_game_script.data_p1 = data_p1;
+            manager_game_script.data_p2 = data_p2;
         }
     }
-    void Control_Selection(KeyCode left, KeyCode right, KeyCode select, ref bool lock_p, ref int index_head_p, ref int index_col_p, ref List<string> data_p)
+    void Control_Selection(float joystick_x, KeyCode left, KeyCode right, KeyCode select_keyboard, KeyCode select_joystick, ref bool lock_p, ref int index_head_p, ref int index_col_p, ref List<string> data_p)
     {
         if (!lock_p)
         {
-            if (Input.GetKeyDown(left))
+            if (Input.GetKeyDown(left) || -0.5f > joystick_x)
             {
                 index_col_p -= 1;
                 Check_Index(ref index_head_p, ref index_col_p, -1);
             }
-            else if (Input.GetKeyDown(right))
+            else if (Input.GetKeyDown(right) || joystick_x > 0.5f)
             {
                 index_col_p += 1;
                 Check_Index(ref index_head_p, ref index_col_p, 1);
             }
-            else if (Input.GetKeyDown(select))
+            else if (Input.GetKeyDown(select_keyboard) || Input.GetKeyDown(select_joystick))
             {
                 Write_Selection(ref index_col_p, ref data_p);
                 Check_Lock(ref lock_p, ref lock_p1, ref lock_p2, ref count_enter, ref index_head_p1, ref index_head_p2, ref index_col_p1, ref index_col_p2, ref index_row);
@@ -105,13 +107,13 @@ public class menu_selection_select : MonoBehaviour
                 switch (index_col_p)
                 {
                     case 0:
-                        data_p.Add("head_dwarf");
+                        data_p.Add("heads_dwarf");
                         break;
                     case 1:
-                        data_p.Add("head_elf");
+                        data_p.Add("heads_elf");
                         break;
                     case 2:
-                        data_p.Add("head_goblin");
+                        data_p.Add("heads_goblin");
                         break;
                 }
                 break;
@@ -119,13 +121,13 @@ public class menu_selection_select : MonoBehaviour
                 switch (index_col_p)
                 {
                     case 0:
-                        data_p.Add("body_dwarf");
+                        data_p.Add("torso_dwarf");
                         break;
                     case 1:
-                        data_p.Add("body_elf");
+                        data_p.Add("torso_elf");
                         break;
                     case 2:
-                        data_p.Add("body_goblin");
+                        data_p.Add("torso_goblin");
                         break;
                 }
                 break;
@@ -133,10 +135,10 @@ public class menu_selection_select : MonoBehaviour
                 switch (index_col_p)
                 {
                     case 0:
-                        data_p.Add("limbs_crossbow");
+                        data_p.Add("_hands_crossbow");
                         break;
                     case 1:
-                        data_p.Add("limbs_cannon");
+                        data_p.Add("_hands_cannon");
                         break;
                 }
                 break;
