@@ -21,8 +21,8 @@ public class menu_selection_select : MonoBehaviour
     }
     void Update()
     {
-        float joystick1_x = Input.GetAxis("joystick1_x");
-        float joystick2_x = Input.GetAxis("joystick2_x");
+        float joystick1_x = Input.GetAxisRaw("joystick1_x");
+        float joystick2_x = Input.GetAxisRaw("joystick2_x");
         if (is_coop)
         {
             Control_Selection(joystick1_x, KeyCode.A, KeyCode.D, KeyCode.Space, KeyCode.Joystick1Button7, ref lock_p1, ref index_head_p1, ref index_col_p1, ref data_p1);
@@ -107,13 +107,13 @@ public class menu_selection_select : MonoBehaviour
                 switch (index_col_p)
                 {
                     case 0:
-                        data_p.Add("head_dwarf");
+                        data_p.Add("heads_dwarf");
                         break;
                     case 1:
-                        data_p.Add("head_elf");
+                        data_p.Add("heads_elf");
                         break;
                     case 2:
-                        data_p.Add("head_goblin");
+                        data_p.Add("heads_goblin");
                         break;
                 }
                 break;
@@ -121,13 +121,13 @@ public class menu_selection_select : MonoBehaviour
                 switch (index_col_p)
                 {
                     case 0:
-                        data_p.Add("body_dwarf");
+                        data_p.Add("torso_dwarf");
                         break;
                     case 1:
-                        data_p.Add("body_elf");
+                        data_p.Add("torso_elf");
                         break;
                     case 2:
-                        data_p.Add("body_goblin");
+                        data_p.Add("torso_goblin");
                         break;
                 }
                 break;
@@ -135,10 +135,10 @@ public class menu_selection_select : MonoBehaviour
                 switch (index_col_p)
                 {
                     case 0:
-                        data_p.Add("limbs_crossbow");
+                        data_p.Add("_hands_crossbow");
                         break;
                     case 1:
-                        data_p.Add("limbs_cannon");
+                        data_p.Add("_hands_cannon");
                         break;
                 }
                 break;

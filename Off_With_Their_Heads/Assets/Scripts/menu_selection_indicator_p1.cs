@@ -36,7 +36,7 @@ public class menu_selection_indicator_p1 : MonoBehaviour
     }
     void Instantiate_Indicator()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button7))
         {
             is_checked = false;
             SpriteRenderer spriterenderer = GetComponent<SpriteRenderer>();

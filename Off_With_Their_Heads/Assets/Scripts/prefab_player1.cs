@@ -35,8 +35,8 @@ public class prefab_player1 : MonoBehaviour
     }
     void Update()
     {
-        float joystick1_x = Input.GetAxis("joystick1_x");
-        if (Input.GetKey(KeyCode.A) || -0.5f > joystick1_x)
+        float joystick1_x = Input.GetAxisRaw("joystick1_x");
+        if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) || -0.5f > joystick1_x)
         {
             rigidbody.velocity = new Vector2(-speed_movement, rigidbody.velocity.y);
             if (lock_key)
@@ -47,10 +47,10 @@ public class prefab_player1 : MonoBehaviour
                 animation_state = "_walk";
             }
         }
-        else if (Input.GetKey(KeyCode.D) || joystick1_x > 0.5f)
+        else if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) || joystick1_x > 0.5f)
         {
             rigidbody.velocity = new Vector2(speed_movement, rigidbody.velocity.y);
-            if (lock_key)
+            if (lock_key || Input.GetKey(KeyCode.A))
             {
                 lock_key = false;
                 animation_flip = false;
@@ -73,14 +73,14 @@ public class prefab_player1 : MonoBehaviour
             animation_change = 0;
             animation_state = "_jump";
         }
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Joystick1Button1))
+        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Joystick1Button1))
         {
             if (is_ground)
             {
                 rigidbody.velocity = Vector2.up * 8f;
             }
         }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.Joystick1Button0))
+        if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Joystick1Button0))
         {
             if (timer_attack >= speed_attack)
             {
