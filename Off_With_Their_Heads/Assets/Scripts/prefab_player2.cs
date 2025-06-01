@@ -11,7 +11,7 @@ public class prefab_player2 : MonoBehaviour
     public Collider2D collider;
     public Rigidbody2D rigidbody;
     public bool animation_flip = false;
-    public bool change_pos_shadow = false;
+    public bool is_shadow = false;
     public int animation_change = 0;
     public string animation_state;
     public int health = 3;
@@ -112,7 +112,7 @@ public class prefab_player2 : MonoBehaviour
         if (collision.gameObject.CompareTag("ground"))
         {
             is_ground = true;
-            change_pos_shadow = true;
+            is_shadow = true;
             if (Mathf.Abs(rigidbody.velocity.x) >= 0.4f)
             {
                 animation_change = 0;
@@ -130,6 +130,7 @@ public class prefab_player2 : MonoBehaviour
         if (collision.gameObject.CompareTag("ground"))
         {
             is_ground = false;
+            is_shadow = false;
         }
     }
 }

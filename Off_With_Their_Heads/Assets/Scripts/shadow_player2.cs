@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 public class shadow_player2 : MonoBehaviour
 {
+    public SpriteRenderer spriterenderer;
     void Start()
     {
-        
+        spriterenderer = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
-        var prefab_player1_script = GameObject.Find("prefab_player1(Clone)").GetComponent<prefab_player1>();
-        if (prefab_player1_script.change_pos_shadow)
+        var prefab_player2_script = GameObject.Find("prefab_player2(Clone)").GetComponent<prefab_player2>();
+        if (prefab_player2_script.is_shadow)
         {
-            prefab_player1_script.change_pos_shadow = false;
+            spriterenderer.enabled = true;
+        }
+        else
+        {
+            spriterenderer.enabled = false;
         }
     }
 }

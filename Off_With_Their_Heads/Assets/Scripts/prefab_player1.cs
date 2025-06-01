@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 public class prefab_player1 : MonoBehaviour
 {
-    private bool lock_key = false;
     private bool is_ground = false;
+    private bool lock_key = false;
     private float speed_attack;
     private float speed_movement = 4f;
     private float timer_attack = 0;
     public Collider2D collider;
     public Rigidbody2D rigidbody;
     public bool animation_flip = false;
-    public bool change_pos_shadow = false;
+    public bool is_shadow = false;
     public int animation_change = 0;
     public string animation_state;
     public int health = 3;
@@ -110,7 +110,7 @@ public class prefab_player1 : MonoBehaviour
         if (collision.gameObject.CompareTag("ground"))
         {
             is_ground = true;
-            change_pos_shadow = true;
+            is_shadow = true;
             if (Mathf.Abs(rigidbody.velocity.x) >= 0.4f)
             {
                 animation_change = 0;
@@ -128,6 +128,7 @@ public class prefab_player1 : MonoBehaviour
         if (collision.gameObject.CompareTag("ground"))
         {
             is_ground = false;
+            is_shadow = false;
         }
     }
 }
