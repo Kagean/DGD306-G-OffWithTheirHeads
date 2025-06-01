@@ -6,11 +6,12 @@ public class prefab_player1 : MonoBehaviour
     private bool lock_key = false;
     private bool is_ground = false;
     private float speed_attack;
-    private float speed_movement = 8f;
+    private float speed_movement = 4f;
     private float timer_attack = 0;
     public Collider2D collider;
     public Rigidbody2D rigidbody;
     public bool animation_flip = false;
+    public bool change_pos_shadow = false;
     public int animation_change = 0;
     public string animation_state;
     public int health = 3;
@@ -68,11 +69,6 @@ public class prefab_player1 : MonoBehaviour
                 animation_state = "_idle";
             }
         }
-        if (!is_ground)
-        {
-            animation_change = 0;
-            animation_state = "_jump";
-        }
         if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Joystick1Button1))
         {
             if (is_ground)
@@ -86,6 +82,11 @@ public class prefab_player1 : MonoBehaviour
             {
                 timer_attack = 0;
             }
+        }
+        if (!is_ground)
+        {
+            animation_change = 0;
+            animation_state = "_jump";
         }
         timer_attack += Time.deltaTime;
     }
@@ -101,7 +102,7 @@ public class prefab_player1 : MonoBehaviour
         }
         else
         {
-            speed_movement += 4f;
+            speed_movement *= 1.5f;
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -109,6 +110,7 @@ public class prefab_player1 : MonoBehaviour
         if (collision.gameObject.CompareTag("ground"))
         {
             is_ground = true;
+            change_pos_shadow = true;
             if (Mathf.Abs(rigidbody.velocity.x) >= 0.4f)
             {
                 animation_change = 0;

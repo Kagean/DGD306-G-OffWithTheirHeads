@@ -121,9 +121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   spriterenderer: {fileID: 0}
-  animation_flip: 0
-  animation_change: 0
-  animation_state: 
   index: 3
   data_p1: []
 --- !u!1 &1618102171990585531
@@ -353,9 +350,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   spriterenderer: {fileID: 0}
-  animation_flip: 0
-  animation_change: 0
-  animation_state: 
   index: 1
   data_p1: []
 --- !u!1 &5067877169855152822
@@ -479,9 +473,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   spriterenderer: {fileID: 0}
-  animation_flip: 0
-  animation_change: 0
-  animation_state: 
   index: 0
   data_p1: []
 --- !u!1 &7582722649303623736
@@ -513,7 +504,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4401227033930283261}
@@ -537,6 +528,7 @@ MonoBehaviour:
   collider: {fileID: 0}
   rigidbody: {fileID: 4113756112290626881}
   animation_flip: 0
+  change_pos_shadow: 0
   animation_change: 0
   animation_state: 
   health: 3

@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9049370946983435867, guid: 75d5bea8a3f4e5e44aff713a5430245b, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p1 (6)
+      value: sprite_selection_indicator_player1 (6)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -241,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9049370946983435867, guid: 75d5bea8a3f4e5e44aff713a5430245b, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p1 (7)
+      value: sprite_selection_indicator_player1 (7)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -350,7 +350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8193918853185961706, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p2 (4)
+      value: sprite_selection_indicator_player2 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 9199472973159228780, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_LocalPosition.x
@@ -411,7 +411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8193918853185961706, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p2 (3)
+      value: sprite_selection_indicator_player2 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 9199472973159228780, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_LocalPosition.x
@@ -468,7 +468,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8193918853185961706, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p2
+      value: sprite_selection_indicator_player2
       objectReference: {fileID: 0}
     - target: {fileID: 9199472973159228780, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_LocalPosition.x
@@ -565,7 +565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9049370946983435867, guid: 75d5bea8a3f4e5e44aff713a5430245b, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p1
+      value: sprite_selection_indicator_player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -626,7 +626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9049370946983435867, guid: 75d5bea8a3f4e5e44aff713a5430245b, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p1 (2)
+      value: sprite_selection_indicator_player1 (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -739,7 +739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8193918853185961706, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p2 (6)
+      value: sprite_selection_indicator_player2 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 9199472973159228780, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_LocalPosition.x
@@ -804,7 +804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8193918853185961706, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p2 (5)
+      value: sprite_selection_indicator_player2 (5)
       objectReference: {fileID: 0}
     - target: {fileID: 9199472973159228780, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_LocalPosition.x
@@ -869,7 +869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8193918853185961706, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p2 (7)
+      value: sprite_selection_indicator_player2 (7)
       objectReference: {fileID: 0}
     - target: {fileID: 9199472973159228780, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_LocalPosition.x
@@ -970,7 +970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9049370946983435867, guid: 75d5bea8a3f4e5e44aff713a5430245b, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p1 (3)
+      value: sprite_selection_indicator_player1 (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1031,7 +1031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9049370946983435867, guid: 75d5bea8a3f4e5e44aff713a5430245b, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p1 (1)
+      value: sprite_selection_indicator_player1 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1136,7 +1136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8193918853185961706, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p2 (1)
+      value: sprite_selection_indicator_player2 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9199472973159228780, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1307,7 +1307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8193918853185961706, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p2 (2)
+      value: sprite_selection_indicator_player2 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 9199472973159228780, guid: 392c33b3203b4dc428eb2bffe61b8044, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1412,7 +1412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9049370946983435867, guid: 75d5bea8a3f4e5e44aff713a5430245b, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p1 (4)
+      value: sprite_selection_indicator_player1 (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1477,7 +1477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9049370946983435867, guid: 75d5bea8a3f4e5e44aff713a5430245b, type: 3}
       propertyPath: m_Name
-      value: sprite_selection_indicator_p1 (5)
+      value: sprite_selection_indicator_player1 (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

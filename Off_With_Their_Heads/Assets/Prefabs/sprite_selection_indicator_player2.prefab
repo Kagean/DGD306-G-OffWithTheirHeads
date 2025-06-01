@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6424961009463217950}
   - component: {fileID: 8068530326475569155}
   m_Layer: 0
-  m_Name: sprite_selection_indicator_p2
+  m_Name: sprite_selection_indicator_player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a4e757634a72a4db980c9e567f7308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite_selection_indicator_bg_p2: {fileID: 3640621447166989940, guid: 82aeef46562a0c640b890878a5a7874b, type: 3}
+  sprite_selection_indicator_bg_player2: {fileID: 3640621447166989940, guid: 82aeef46562a0c640b890878a5a7874b, type: 3}
+  spriterenderer: {fileID: 0}
   index_col_indicator: 0
   index_row_indicator: 0

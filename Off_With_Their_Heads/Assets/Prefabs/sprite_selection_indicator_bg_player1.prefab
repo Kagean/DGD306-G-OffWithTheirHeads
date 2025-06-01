@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7821525907245845199}
   - component: {fileID: 1889355710708035369}
   m_Layer: 0
-  m_Name: sprite_selection_indicator_bg_p1
+  m_Name: sprite_selection_indicator_bg_player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

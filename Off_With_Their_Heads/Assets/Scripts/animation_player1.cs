@@ -5,9 +5,6 @@ public class animation_player1 : MonoBehaviour
 {
     public Animator animator;
     public SpriteRenderer spriterenderer;
-    public bool animation_flip;
-    public int animation_change;
-    public string animation_state;
     public int index;
     public List<string> data_p1 = new List<string>();
     void Start()
@@ -20,10 +17,7 @@ public class animation_player1 : MonoBehaviour
     void Update()
     {
         var prefab_player1_script = GameObject.Find("prefab_player1(Clone)").GetComponent<prefab_player1>();
-        animation_flip = prefab_player1_script.animation_flip;
-        animation_change = prefab_player1_script.animation_change;
-        animation_state = prefab_player1_script.animation_state;
-        if (animation_flip)
+        if (prefab_player1_script.animation_flip)
         {
             spriterenderer.flipX = true;
         }
@@ -31,17 +25,16 @@ public class animation_player1 : MonoBehaviour
         {
             spriterenderer.flipX = false;
         }
-        if (3 > animation_change)
+        if (3 > prefab_player1_script.animation_change)
         {
             prefab_player1_script.animation_change += 1;
-            animation_change += 1;
             if (index == 3)
             {
-                animator.CrossFade("legs" + animation_state, 0f);
+                animator.CrossFade("legs" + prefab_player1_script.animation_state, 0f);
             }
             else
             {
-                animator.CrossFade(data_p1[index] + animation_state, 0f);
+                animator.CrossFade(data_p1[index] + prefab_player1_script.animation_state, 0f);
             }
         }
     }
