@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class level_0 : MonoBehaviour
 {
+    private GameObject camera_settings;
     private bool is_coop;
     private bool lock_p1 = false;
     private bool lock_p2 = false;
@@ -13,6 +14,8 @@ public class level_0 : MonoBehaviour
     }
     void Update()
     {
+        camera_settings = GameObject.Find("camera_settings");
+        camera_settings.transform.position = new Vector3(0, 0, 0);
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button7))
         {
             if (is_coop)

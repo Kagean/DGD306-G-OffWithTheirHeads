@@ -17,6 +17,18 @@ public class animation_player2 : MonoBehaviour
     void Update()
     {
         var prefab_player2_script = GameObject.Find("prefab_player2(Clone)").GetComponent<prefab_player2>();
+        if (prefab_player2_script.is_invincible)
+        {
+            Color color = spriterenderer.color;
+            color.a = 0.5f;
+            spriterenderer.color = color;
+        }
+        else
+        {
+            Color color = spriterenderer.color;
+            color.a = 1f;
+            spriterenderer.color = color;
+        }
         if (prefab_player2_script.animation_flip)
         {
             spriterenderer.flipX = true;
