@@ -4,11 +4,16 @@ using UnityEngine;
 public class menu_selection_select : MonoBehaviour
 {
     private bool is_coop;
-    private bool lock_p1 = false;
-    private bool lock_p2 = false;
+    private bool lock_p1_movement = false;
+    private bool lock_p2_movement = false;
+    private bool lock_p1_joystick = false;
+    private bool lock_p2_joystick = false;
     private int count_enter = 0;
     private int index_head_p1 = 0;
     private int index_head_p2 = 0;
+    private int p1_horizontal;
+    private int p2_horizontal;
+    public bool lock_select = true;
     public int index_col_p1 = 0;
     public int index_col_p2 = 0;
     public int index_row = 0;
@@ -21,16 +26,16 @@ public class menu_selection_select : MonoBehaviour
     }
     void Update()
     {
-        float joystick1_x = Input.GetAxisRaw("joystick1_x");
-        float joystick2_x = Input.GetAxisRaw("joystick2_x");
+        p1_horizontal = (int)Input.GetAxisRaw("p1_horizontal");
+        p2_horizontal = (int)Input.GetAxisRaw("p2_horizontal");
         if (is_coop)
         {
-            Control_Selection(joystick1_x, KeyCode.A, KeyCode.D, KeyCode.Space, KeyCode.Joystick1Button7, ref lock_p1, ref index_head_p1, ref index_col_p1, ref data_p1);
-            Control_Selection(joystick2_x, KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.Return, KeyCode.Joystick2Button7, ref lock_p2, ref index_head_p2, ref index_col_p2, ref data_p2);
+            Control_Selection(KeyCode.A, KeyCode.D, KeyCode.Space, KeyCode.Joystick1Button7, p1_horizontal, ref lock_p1_joystick, ref lock_p1_movement, ref index_head_p1, ref index_col_p1, ref data_p1);
+            Control_Selection(KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.Return, KeyCode.Joystick2Button7, p2_horizontal, ref lock_p2_joystick, ref lock_p2_movement, ref index_head_p2, ref index_col_p2, ref data_p2);
         }
         else
         {
-            Control_Selection(joystick1_x, KeyCode.A, KeyCode.D, KeyCode.Space, KeyCode.Joystick1Button7, ref lock_p1, ref index_head_p1, ref index_col_p1, ref data_p1);
+            Control_Selection(KeyCode.A, KeyCode.D, KeyCode.Space, KeyCode.Joystick1Button7, p1_horizontal, ref lock_p1_joystick, ref lock_p1_movement, ref index_head_p1, ref index_col_p1, ref data_p1);
         }
         if (index_row > 2)
         {
@@ -41,24 +46,31 @@ public class menu_selection_select : MonoBehaviour
             manager_game_script.data_p2 = data_p2;
         }
     }
-    void Control_Selection(float joystick_x, KeyCode left, KeyCode right, KeyCode select_keyboard, KeyCode select_joystick, ref bool lock_p, ref int index_head_p, ref int index_col_p, ref List<string> data_p)
+    void Control_Selection(KeyCode keyboard_left, KeyCode keyboard_right, KeyCode keyboard_select, KeyCode joystick_select, int p_horizontal, ref bool lock_p_joystick, ref bool lock_p_movement, ref int index_head_p, ref int index_col_p, ref List<string> data_p)
     {
-        if (!lock_p)
+        if (!lock_p_movement)
         {
-            if (Input.GetKeyDown(left) || -0.5f > joystick_x)
+            if (Input.GetKeyDown(keyboard_left) || (p_horizontal == 1 && !lock_p_joystick))
             {
+                lock_p_joystick = true;
                 index_col_p -= 1;
                 Check_Index(ref index_head_p, ref index_col_p, -1);
             }
-            else if (Input.GetKeyDown(right) || joystick_x > 0.5f)
+            else if (Input.GetKeyDown(keyboard_right) || (p_horizontal == -1 && !lock_p_joystick))
             {
+                lock_p_joystick = true;
                 index_col_p += 1;
                 Check_Index(ref index_head_p, ref index_col_p, 1);
             }
-            else if (Input.GetKeyDown(select_keyboard) || Input.GetKeyDown(select_joystick))
+            else if ((Input.GetKey(keyboard_select) || Input.GetKey(joystick_select)) && !lock_select)
             {
+                lock_select = true;
                 Write_Selection(ref index_col_p, ref data_p);
-                Check_Lock(ref lock_p, ref lock_p1, ref lock_p2, ref count_enter, ref index_head_p1, ref index_head_p2, ref index_col_p1, ref index_col_p2, ref index_row);
+                Check_Lock(ref lock_p_movement, ref lock_p1_movement, ref lock_p2_movement, ref count_enter, ref index_head_p1, ref index_head_p2, ref index_col_p1, ref index_col_p2, ref index_row);
+            }
+            else if (p_horizontal == 0)
+            {
+                lock_p_joystick = false;
             }
         }
     }
@@ -135,25 +147,25 @@ public class menu_selection_select : MonoBehaviour
                 switch (index_col_p)
                 {
                     case 0:
-                        data_p.Add("_hands_crossbow");
+                        data_p.Add("hands_crossbow");
                         break;
                     case 1:
-                        data_p.Add("_hands_cannon");
+                        data_p.Add("hands_cannon");
                         break;
                 }
                 break;
         }
     }
-    void Check_Lock(ref bool lock_p, ref bool lock_p1, ref bool lock_p2, ref int count_enter, ref int index_head_p1, ref int index_head_p2, ref int index_col_p1, ref int index_col_p2, ref int index_row)
+    void Check_Lock(ref bool lock_p_movement, ref bool lock_p1_movement, ref bool lock_p2_movement, ref int count_enter, ref int index_head_p1, ref int index_head_p2, ref int index_col_p1, ref int index_col_p2, ref int index_row)
     {
         if (is_coop)
         {
-            lock_p = true;
+            lock_p_movement = true;
             count_enter += 1;
             if (count_enter > 1)
             {
-                lock_p1 = false;
-                lock_p2 = false;
+                lock_p1_movement = false;
+                lock_p2_movement = false;
                 count_enter = 0;
                 index_head_p1 = index_col_p1;
                 index_head_p2 = index_col_p2;

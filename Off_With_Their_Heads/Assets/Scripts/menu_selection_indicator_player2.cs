@@ -5,7 +5,7 @@ public class menu_selection_indicator_player2 : MonoBehaviour
 {
     private bool is_checked = true;
     private bool is_coop;
-    public GameObject sprite_selection_indicator_bg_player2;
+    public GameObject prefab_selection_indicator_bg_player2;
     public SpriteRenderer spriterenderer;
     public int index_col_indicator;
     public int index_row_indicator;
@@ -25,26 +25,20 @@ public class menu_selection_indicator_player2 : MonoBehaviour
             {
                 if (index_col_indicator == script_menu_selection_select.index_col_p2 && index_row_indicator == script_menu_selection_select.index_row)
                 {
-                    spriterenderer = GetComponent<SpriteRenderer>();
                     spriterenderer.enabled = true;
-                    Instantiate_Indicator();
+                    if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick2Button7)) && script_menu_selection_select.lock_select)
+                    {
+                        script_menu_selection_select.lock_select = false;
+                        is_checked = false;
+                        spriterenderer.enabled = false;
+                        Instantiate(prefab_selection_indicator_bg_player2, transform.position, transform.rotation);
+                    }
                 }
                 else
                 {
-                    spriterenderer = GetComponent<SpriteRenderer>();
                     spriterenderer.enabled = false;
                 }
             }
-        }
-    }
-    void Instantiate_Indicator()
-    {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick2Button7))
-        {
-            is_checked = false;
-            SpriteRenderer spriterenderer = GetComponent<SpriteRenderer>();
-            spriterenderer.enabled = false;
-            Instantiate(sprite_selection_indicator_bg_player2, transform.position, transform.rotation);
         }
     }
 }
