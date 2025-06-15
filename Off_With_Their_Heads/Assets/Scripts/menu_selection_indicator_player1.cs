@@ -4,7 +4,7 @@ using UnityEngine;
 public class menu_selection_indicator_player1 : MonoBehaviour
 {
     private bool is_checked = true;
-    public GameObject sprite_selection_indicator_bg_player1;
+    public GameObject prefab_selection_indicator_bg_player1;
     public SpriteRenderer spriterenderer;
     public int index_col_indicator;
     public int index_row_indicator;
@@ -20,25 +20,19 @@ public class menu_selection_indicator_player1 : MonoBehaviour
             var script_menu_selection_select = GameObject.Find("menu_selection_select").GetComponent<menu_selection_select>();
             if (index_col_indicator == script_menu_selection_select.index_col_p1 && index_row_indicator == script_menu_selection_select.index_row)
             {
-                spriterenderer = GetComponent<SpriteRenderer>();
                 spriterenderer.enabled = true;
-                Instantiate_Indicator();
+                if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button7)) && script_menu_selection_select.lock_select)
+                {
+                    script_menu_selection_select.lock_select = false;
+                    is_checked = false;
+                    spriterenderer.enabled = false;
+                    Instantiate(prefab_selection_indicator_bg_player1, transform.position, transform.rotation);
+                }
             }
             else
             {
-                spriterenderer = GetComponent<SpriteRenderer>();
                 spriterenderer.enabled = false;
             }
-        }
-    }
-    void Instantiate_Indicator()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button7))
-        {
-            is_checked = false;
-            SpriteRenderer spriterenderer = GetComponent<SpriteRenderer>();
-            spriterenderer.enabled = false;
-            Instantiate(sprite_selection_indicator_bg_player1, transform.position, transform.rotation);
         }
     }
 }
