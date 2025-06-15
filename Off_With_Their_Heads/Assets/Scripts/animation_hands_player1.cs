@@ -13,11 +13,15 @@ public class animation_hands_player1 : MonoBehaviour
         spriterenderer = GetComponent<SpriteRenderer>();
         var manager_game_script = GameObject.Find("manager_game").GetComponent<manager_game>();
         data_p1 = manager_game_script.data_p1;
+<<<<<<< Updated upstream
         animator.CrossFade(data_p1[2], 0f);
+=======
+>>>>>>> Stashed changes
     }
     void Update()
     {
         var prefab_player1_script = GameObject.Find("prefab_player1(Clone)").GetComponent<prefab_player1>();
+<<<<<<< Updated upstream
         if (prefab_player1_script.is_invincible)
         {
             Color color = spriterenderer.color;
@@ -30,6 +34,8 @@ public class animation_hands_player1 : MonoBehaviour
             color.a = 1f;
             spriterenderer.color = color;
         }
+=======
+>>>>>>> Stashed changes
         if (prefab_player1_script.animation_flip)
         {
             spriterenderer.flipX = true;
@@ -42,6 +48,7 @@ public class animation_hands_player1 : MonoBehaviour
         }
         if (prefab_player1_script.animation_change_hands != 0)
         {
+<<<<<<< Updated upstream
             if (prefab_player1_script.animation_change_hands == 1)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -52,6 +59,18 @@ public class animation_hands_player1 : MonoBehaviour
             }
             animator.CrossFade(data_p1[2], 0f);
             prefab_player1_script.animation_change_hands = 0;
+=======
+            animator.CrossFade(prefab_player1_script.data_p1[2], 0f);
+            prefab_player1_script.animation_change_hands = 0;
+            if (prefab_player1_script.is_looking_up)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, rotation);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+>>>>>>> Stashed changes
         }
     }
 }

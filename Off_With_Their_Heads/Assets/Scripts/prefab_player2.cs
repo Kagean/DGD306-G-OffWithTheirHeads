@@ -25,8 +25,13 @@ public class prefab_player2 : MonoBehaviour
     public bool is_faced_up = false;
     public bool is_invincible = false;
     public bool is_shadow = false;
+    public bool is_looking_up = false;
     public int animation_change = 0;
     public int animation_change_hands = 1;
+<<<<<<< Updated upstream
+=======
+    public string animation_state;
+>>>>>>> Stashed changes
     public int health = 3;
     public string animation_state;
     public List<string> data_p2 = new List<string>();
@@ -66,6 +71,7 @@ public class prefab_player2 : MonoBehaviour
                 is_faced_up = false;
                 lock_key = false;
                 animation_flip = true;
+                is_looking_up = false;
                 animation_change = 0;
                 animation_change_hands = 1;
                 animation_state = "_walk";
@@ -79,16 +85,24 @@ public class prefab_player2 : MonoBehaviour
                 is_faced_up = false;
                 lock_key = false;
                 animation_flip = false;
+                is_looking_up = false;
                 animation_change = 0;
                 animation_change_hands = 1;
                 animation_state = "_walk";
             }
         }
+<<<<<<< Updated upstream
         else if ((Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow)) || p2_vertical == 1)
         {
             if (lock_key)
             {
                 is_faced_up = true;
+=======
+        else if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        {
+            if (lock_key)
+            {
+>>>>>>> Stashed changes
                 lock_key = false;
                 animation_change = 0;
                 animation_change_hands = 2;
@@ -101,6 +115,7 @@ public class prefab_player2 : MonoBehaviour
             if (!lock_key)
             {
                 lock_key = true;
+                is_looking_up = true;
                 animation_change = 0;
                 animation_state = "_idle";
             }

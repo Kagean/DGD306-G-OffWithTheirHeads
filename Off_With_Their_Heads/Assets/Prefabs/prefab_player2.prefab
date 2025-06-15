@@ -63,8 +63,14 @@ MonoBehaviour:
   is_faced_up: 0
   is_invincible: 0
   is_shadow: 0
+  is_looking_up: 0
   animation_change: 0
+<<<<<<< Updated upstream
   animation_change_hands: 0
+=======
+  animation_change_hands: 1
+  animation_state: 
+>>>>>>> Stashed changes
   health: 3
   animation_state: 
   data_p2: []
@@ -495,7 +501,11 @@ GameObject:
   - component: {fileID: 2175313036414113857}
   - component: {fileID: 3518636993231723611}
   - component: {fileID: 8615702346932829761}
+<<<<<<< Updated upstream
   - component: {fileID: 3112068701726864621}
+=======
+  - component: {fileID: 924635402658068408}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: animation_hands
   m_TagString: Untagged
@@ -591,7 +601,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< Updated upstream
 --- !u!114 &3112068701726864621
+=======
+--- !u!114 &924635402658068408
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

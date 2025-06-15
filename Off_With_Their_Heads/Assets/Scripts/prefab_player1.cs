@@ -25,8 +25,13 @@ public class prefab_player1 : MonoBehaviour
     public bool is_faced_up = false;
     public bool is_invincible = false;
     public bool is_shadow = false;
+    public bool is_looking_up = false;
     public int animation_change = 0;
     public int animation_change_hands = 1;
+<<<<<<< Updated upstream
+=======
+    public string animation_state;
+>>>>>>> Stashed changes
     public int health = 3;
     public string animation_state;
     public List<string> data_p1 = new List<string>();
@@ -50,10 +55,15 @@ public class prefab_player1 : MonoBehaviour
     }
     void Update()
     {
+<<<<<<< Updated upstream
         var manager_game_script = GameObject.Find("manager_game").GetComponent<manager_game>();
         p1_horizontal = (int)Input.GetAxisRaw("p1_horizontal");
         p1_vertical = (int)Input.GetAxisRaw("p1_vertical");
         if ((Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.W)) || p1_horizontal == 1)
+=======
+        float joystick1_x = Input.GetAxisRaw("joystick1_x");
+        if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.W))
+>>>>>>> Stashed changes
         {
             rigidbody.velocity = new Vector2(-speed_movement, rigidbody.velocity.y);
             if (lock_key)
@@ -61,12 +71,17 @@ public class prefab_player1 : MonoBehaviour
                 is_faced_up = false;
                 lock_key = false;
                 animation_flip = true;
+                is_looking_up = false;
                 animation_change = 0;
                 animation_change_hands = 1;
                 animation_state = "_walk";
             }
         }
+<<<<<<< Updated upstream
         else if ((Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.W)) || p1_horizontal == -1)
+=======
+        else if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.W))
+>>>>>>> Stashed changes
         {
             rigidbody.velocity = new Vector2(speed_movement, rigidbody.velocity.y);
             if (lock_key)
@@ -74,17 +89,27 @@ public class prefab_player1 : MonoBehaviour
                 is_faced_up = false;
                 lock_key = false;
                 animation_flip = false;
+                is_looking_up = false;
                 animation_change = 0;
                 animation_change_hands = 1;
                 animation_state = "_walk";
             }
         }
+<<<<<<< Updated upstream
         else if ((Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) || p1_vertical == 1)
         {
             if (lock_key)
             {
                 is_faced_up = true;
                 lock_key = false;
+=======
+        else if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        {
+            if (lock_key)
+            {
+                lock_key = false;
+                is_looking_up = true;
+>>>>>>> Stashed changes
                 animation_change = 0;
                 animation_change_hands = 2;
                 animation_state = "_idle";
@@ -100,14 +125,22 @@ public class prefab_player1 : MonoBehaviour
                 animation_state = "_idle";
             }
         }
+<<<<<<< Updated upstream
         if (Input.GetKey(KeyCode.T) || Input.GetKey(KeyCode.Joystick1Button1))
+=======
+        if (Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.Joystick1Button1))
+>>>>>>> Stashed changes
         {
             if (is_ground)
             {
                 rigidbody.velocity = new Vector2(rigidbody.velocity.x, 8f);
             }
         }
+<<<<<<< Updated upstream
         if (Input.GetKey(KeyCode.Y) || Input.GetKey(KeyCode.Joystick1Button0))
+=======
+        if (Input.GetKey(KeyCode.V) || Input.GetKey(KeyCode.Joystick1Button0))
+>>>>>>> Stashed changes
         {
             if (timer_attack >= speed_attack)
             {

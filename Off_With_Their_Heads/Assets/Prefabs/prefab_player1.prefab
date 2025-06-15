@@ -134,7 +134,11 @@ GameObject:
   - component: {fileID: 4818290268193090568}
   - component: {fileID: 5162211141481867081}
   - component: {fileID: 1004342310299612952}
+<<<<<<< Updated upstream
   - component: {fileID: 1718717002412750450}
+=======
+  - component: {fileID: 5054012066270743390}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: animation_hands
   m_TagString: Untagged
@@ -230,7 +234,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< Updated upstream
 --- !u!114 &1718717002412750450
+=======
+--- !u!114 &5054012066270743390
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -652,8 +660,13 @@ MonoBehaviour:
   is_faced_up: 0
   is_invincible: 0
   is_shadow: 0
+  is_looking_up: 0
   animation_change: 0
   animation_change_hands: 1
+<<<<<<< Updated upstream
+=======
+  animation_state: 
+>>>>>>> Stashed changes
   health: 3
   animation_state: 
   data_p1: []
