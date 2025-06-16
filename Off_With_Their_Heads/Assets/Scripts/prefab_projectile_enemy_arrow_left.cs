@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class prefab_projectile_enemy_arrow_left : MonoBehaviour
 {
+    private float timer_destroy = 0;
     private float speed_movement = 12f;
     public Animator animator;
     public Collider2D collider;
@@ -20,6 +21,11 @@ public class prefab_projectile_enemy_arrow_left : MonoBehaviour
     }
     void Update()
     {
+        if (timer_destroy >= 1f)
+        {
+            Projectile_Destroyed();
+        }
+        timer_destroy += Time.deltaTime;
         rigidbody.velocity = Vector2.left * speed_movement;
     }
     void OnTriggerEnter2D(Collider2D collision)

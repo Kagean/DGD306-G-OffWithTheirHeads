@@ -93,8 +93,21 @@ public class prefab_projectile_player1 : MonoBehaviour
         if (collision.gameObject.CompareTag("enemy"))
         {
             Projectile_Destroyed();
-            var prefab_enemy_script = collision.gameObject.GetComponent<prefab_enemy>();
-            prefab_enemy_script.health -= damage;
+            if (collision.gameObject.name == "boss_1")
+            {
+                var boss_1_script = collision.gameObject.GetComponent<boss_1>();
+                boss_1_script.health -= 1;
+            }
+            else if (collision.gameObject.name == "boss_2")
+            {
+                var boss_2_script = collision.gameObject.GetComponent<boss_2>();
+                boss_2_script.health -= 1;
+            }
+            else
+            {
+                var prefab_enemy_script = collision.gameObject.GetComponent<prefab_enemy>();
+                prefab_enemy_script.health -= 1;
+            }
         }
     }
     void Projectile_Destroyed()

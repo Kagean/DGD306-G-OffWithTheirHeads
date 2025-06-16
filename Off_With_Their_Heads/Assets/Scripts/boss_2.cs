@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 public class boss_2 : MonoBehaviour
 {
-    private bool is_active = false;
-    private float timer_phase_1 = 0;
-    private float timer_phase_2 = 2f;
+    private bool lock_point = false;
+    private float timer_phase = 0;
+    private bool set = true;
     public GameObject prefab_boss_2_projectile;
     public Animator animator;
     public Collider2D collider;
     public Rigidbody2D rigidbody;
     public SpriteRenderer spriterenderer;
+    public bool is_active = false;
     public int health = 30;
     void Start()
     {
@@ -19,9 +20,10 @@ public class boss_2 : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         spriterenderer = GetComponent<SpriteRenderer>();
         collider.enabled = false;
+        rigidbody.bodyType = RigidbodyType2D.Kinematic;
         spriterenderer.flipX = true;
         spriterenderer.enabled = false;
-        animator.CrossFade("boss_1_idle", 0f);
+        animator.CrossFade("boss_2_idle", 0f);
     }
     void Update()
     {
@@ -72,27 +74,33 @@ public class boss_2 : MonoBehaviour
         }
         if (is_active)
         {
-            if (timer_phase_1 >= 4f)
+            if (set)
             {
-                Instantiate(prefab_boss_2_projectile, transform.position + new Vector3(0, 0.128f, 0), transform.rotation);
-                timer_phase_1 = 0;
+                set = false;
+                collider.enabled = true;
+                rigidbody.bodyType = RigidbodyType2D.Dynamic;
+                spriterenderer.enabled = true;
             }
-            if (timer_phase_2 >= 4f)
+            if (timer_phase >= 1f)
             {
                 Instantiate(prefab_boss_2_projectile, transform.position + new Vector3(0, -0.64f, 0), transform.rotation);
-                timer_phase_1 = 0;
+                timer_phase = 0;
             }
-            timer_phase_1 += Time.deltaTime;
-            timer_phase_2 += Time.deltaTime;
+            timer_phase += Time.deltaTime;
         }
         if (0 >= health)
         {
             collider.enabled = false;
+            rigidbody.gravityScale = 0;
             Destroy(gameObject, 0.416f);
             animator.CrossFade("boss_2_destroyed", 0f);
             var manager_game_script = GameObject.Find("manager_game").GetComponent<manager_game>();
-            manager_game_script.count_score += 5000;
-            manager_game_script.count_score_total += manager_game_script.count_score;
+            if (!lock_point)
+            {
+                lock_point = true;
+                manager_game_script.count_score += 5000;
+                manager_game_script.count_score_total += manager_game_script.count_score;
+            }
             var manager_level_script = GameObject.Find("manager_level").GetComponent<manager_level>();
             manager_level_script.lock_timer = true;
             var script_prefab_fade = GameObject.Find("prefab_fade (2)").GetComponent<prefab_fade>();

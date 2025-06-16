@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6040191617046111625}
   - component: {fileID: 4062849899750839979}
   - component: {fileID: 8208701580685501953}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: prefab_fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}

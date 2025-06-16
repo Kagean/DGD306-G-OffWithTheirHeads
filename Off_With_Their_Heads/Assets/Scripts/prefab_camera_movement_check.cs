@@ -52,8 +52,21 @@ public class prefab_camera_movement_check : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("enemy"))
         {
-            var prefab_enemy_script = collision.gameObject.GetComponent<prefab_enemy>();
-            prefab_enemy_script.is_active = true;
+            if (collision.gameObject.name == "boss_1")
+            {
+                var boss_1_script = collision.gameObject.GetComponent<boss_1>();
+                boss_1_script.is_active = true;
+            }
+            else if (collision.gameObject.name == "boss_2")
+            {
+                var boss_2_script = collision.gameObject.GetComponent<boss_2>();
+                boss_2_script.is_active = true;
+            }
+            else
+            {
+                var prefab_enemy_script = collision.gameObject.GetComponent<prefab_enemy>();
+                prefab_enemy_script.is_active = true;
+            }
         }
     }
 }

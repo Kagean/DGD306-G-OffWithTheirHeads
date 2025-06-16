@@ -159,6 +159,11 @@ public class prefab_player1 : MonoBehaviour
                 {
                     SceneManager.LoadScene("cutscene_lose");
                 }
+                else
+                {
+                    is_invincible = true;
+                    health = 1;
+                }
             }
         }
         if (manager_game_script.is_coop)
@@ -211,6 +216,14 @@ public class prefab_player1 : MonoBehaviour
                 animation_change = 0;
                 animation_state = "_idle";
             }
+        }
+    }
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            is_ground = true;
+            is_shadow = true;
         }
     }
     void OnCollisionExit2D(Collision2D collision)

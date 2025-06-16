@@ -83,7 +83,7 @@ public class prefab_enemy : MonoBehaviour
                 spriterenderer.enabled = true;
                 if (enemy == "dwarf")
                 {
-                    rigidbody.gravityScale = 0.02f;
+                    rigidbody.gravityScale = 0.2f;
                     lock_attack = false;
                     lock_movement = true;
                     speed_attack = 1f;
@@ -91,12 +91,12 @@ public class prefab_enemy : MonoBehaviour
                     animator.CrossFade("enemy_" + enemy, 0f);
                     if (is_faced_left)
                     {
-                        rigidbody.velocity = new Vector2(-4f, -1f);
+                        rigidbody.velocity = new Vector2(0, -1f);
                         prefab_projectile_enemy = prefab_projectile_enemy_cannonball_left;
                     }
                     else
                     {
-                        rigidbody.velocity = new Vector2(4f, -1f);
+                        rigidbody.velocity = new Vector2(0, -1f);
                         prefab_projectile_enemy = prefab_projectile_enemy_cannonball_right;
                     }
                 }
@@ -165,7 +165,8 @@ public class prefab_enemy : MonoBehaviour
                     {
                         is_active = false;
                         collider.enabled = false;
-                        Destroy(gameObject, 0.16f);
+                        rigidbody.gravityScale = 0;
+                        Destroy(gameObject, 0.416f);
                         animator.CrossFade("enemy_" + enemy + "_destroyed", 0f);
                     }
                 }
@@ -173,6 +174,7 @@ public class prefab_enemy : MonoBehaviour
                 {
                     is_active = false;
                     collider.enabled = false;
+                    rigidbody.gravityScale = 0;
                     Destroy(gameObject, 0.16f);
                     animator.CrossFade("enemy_" + enemy + "_destroyed", 0f);
                 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class boss_1 : MonoBehaviour
 {
-    private bool is_active = false;
+    private bool lock_point = false;
     private bool is_running = false;
     private bool set = true;
     private float timer_phase = 0;
@@ -11,6 +11,7 @@ public class boss_1 : MonoBehaviour
     public Collider2D collider;
     public Rigidbody2D rigidbody;
     public SpriteRenderer spriterenderer;
+    public bool is_active = false;
     public int health = 20;
     void Start()
     {
@@ -19,6 +20,7 @@ public class boss_1 : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         spriterenderer = GetComponent<SpriteRenderer>();
         collider.enabled = false;
+        rigidbody.bodyType = RigidbodyType2D.Kinematic;
         spriterenderer.flipX = true;
         spriterenderer.enabled = false;
         animator.CrossFade("boss_1_jump", 0f);
@@ -76,6 +78,7 @@ public class boss_1 : MonoBehaviour
             {
                 set = false;
                 collider.enabled = true;
+                rigidbody.bodyType = RigidbodyType2D.Dynamic;
                 spriterenderer.enabled = true;
             }
             if (6f > timer_phase && timer_phase >= 4f)
@@ -86,22 +89,22 @@ public class boss_1 : MonoBehaviour
                     animator.CrossFade("boss_1_run", 0f);
                     is_running = false;
                 }
-                rigidbody.velocity = new Vector2(-5f, rigidbody.velocity.y);
+                rigidbody.velocity = new Vector2(-5.5f, rigidbody.velocity.y);
             }
             else if (8f > timer_phase && timer_phase >= 6f)
             {
                 spriterenderer.flipX = false;
-                rigidbody.velocity = new Vector2(5f, rigidbody.velocity.y);
+                rigidbody.velocity = new Vector2(5.5f, rigidbody.velocity.y);
             }
             else if (10f > timer_phase && timer_phase >= 8f)
             {
                 spriterenderer.flipX = true;
-                rigidbody.velocity = new Vector2(-5f, 1f);
+                rigidbody.velocity = new Vector2(-5.5f, 2f);
             }
             else if (12f > timer_phase && timer_phase >= 10f)
             {
                 spriterenderer.flipX = false;
-                rigidbody.velocity = new Vector2(5f, 1f);
+                rigidbody.velocity = new Vector2(5.5f, 2f);
             }
             else if (timer_phase >= 12f)
             {
@@ -114,11 +117,16 @@ public class boss_1 : MonoBehaviour
         if (0 >= health)
         {
             collider.enabled = false;
+            rigidbody.gravityScale = 0;
             Destroy(gameObject, 0.58f);
             animator.CrossFade("boss_1_destroyed", 0f);
             var manager_game_script = GameObject.Find("manager_game").GetComponent<manager_game>();
-            manager_game_script.count_score += 5000;
-            manager_game_script.count_score_total += manager_game_script.count_score;
+            if (!lock_point)
+            {
+                lock_point = true;
+                manager_game_script.count_score += 5000;
+                manager_game_script.count_score_total += manager_game_script.count_score;
+            }
             var manager_level_script = GameObject.Find("manager_level").GetComponent<manager_level>();
             manager_level_script.lock_timer = true;
             var script_prefab_fade = GameObject.Find("prefab_fade (2)").GetComponent<prefab_fade>();

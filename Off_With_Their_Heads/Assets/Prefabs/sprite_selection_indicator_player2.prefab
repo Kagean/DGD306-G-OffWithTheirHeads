@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4f4c609538eea284bada9a991a9fbbde, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 34e311ca6f7c7cc49a83f67a92e381c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a4e757634a72a4db980c9e567f7308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite_selection_indicator_bg_player2: {fileID: 3640621447166989940, guid: 82aeef46562a0c640b890878a5a7874b, type: 3}
+  prefab_selection_indicator_bg_player2: {fileID: 3640621447166989940, guid: 82aeef46562a0c640b890878a5a7874b, type: 3}
   spriterenderer: {fileID: 0}
   index_col_indicator: 0
   index_row_indicator: 0

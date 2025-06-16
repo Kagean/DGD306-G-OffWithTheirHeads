@@ -204,6 +204,14 @@ public class prefab_player2 : MonoBehaviour
             }
         }
     }
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            is_ground = true;
+            is_shadow = true;
+        }
+    }
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("ground"))

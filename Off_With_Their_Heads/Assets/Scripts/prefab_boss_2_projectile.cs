@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class prefab_boss_2_projectile : MonoBehaviour
 {
-    private float speed_movement = 12f;
+    private float timer_destroy = 0;
+    private float speed_movement = 5f;
     public Animator animator;
     public Collider2D collider;
     public Rigidbody2D rigidbody;
@@ -20,6 +21,11 @@ public class prefab_boss_2_projectile : MonoBehaviour
     }
     void Update()
     {
+        if (timer_destroy >= 2f)
+        {
+            Projectile_Destroyed();
+        }
+        timer_destroy += Time.deltaTime;
         rigidbody.velocity = Vector2.left * speed_movement;
     }
     void OnTriggerEnter2D(Collider2D collision)
@@ -54,6 +60,6 @@ public class prefab_boss_2_projectile : MonoBehaviour
         animator.CrossFade("boss_2_projectile_destroyed", 0f);
         speed_movement = 0;
         collider.enabled = false;
-        Destroy(gameObject, 0.16f);
+        Destroy(gameObject, 0.33f);
     }
 }
