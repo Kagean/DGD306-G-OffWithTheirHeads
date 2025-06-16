@@ -85,19 +85,22 @@ public class prefab_ui : MonoBehaviour
                 if (GameObject.Find("prefab_player1_death_head") != null)
                 {
                     var prefab_player1_death_head_script = GameObject.Find("prefab_player1_death_head").GetComponent<prefab_player1_death>();
-                    sum_int = (int)prefab_player1_death_head_script.timer_death;
+                    sum_float = 4f - prefab_player1_death_head_script.timer_death;
+                    sum_int = (int)sum_float;
                     GetComponent<TMPro.TextMeshProUGUI>().text = "Death: " + sum_int.ToString();
                 }
                 if (GameObject.Find("prefab_player1_death_torso") != null)
                 {
                     var prefab_player1_death_torso_script = GameObject.Find("prefab_player1_death_torso").GetComponent<prefab_player1_death>();
-                    sum_int = (int)prefab_player1_death_torso_script.timer_death;
+                    sum_float = 4f - prefab_player1_death_torso_script.timer_death;
+                    sum_int = (int)sum_float;
                     GetComponent<TMPro.TextMeshProUGUI>().text = "Death: " + sum_int.ToString();
                 }
                 if (GameObject.Find("prefab_player1_death_limbs") != null)
                 {
                     var prefab_player1_death_limbs_script = GameObject.Find("prefab_player1_death_limbs").GetComponent<prefab_player1_death>();
-                    sum_int = (int)prefab_player1_death_limbs_script.timer_death;
+                    sum_float = 4f - prefab_player1_death_limbs_script.timer_death;
+                    sum_int = (int)sum_float;
                     GetComponent<TMPro.TextMeshProUGUI>().text = "Death: " + sum_int.ToString();
                 }
                 else
@@ -111,19 +114,22 @@ public class prefab_ui : MonoBehaviour
                     if (GameObject.Find("prefab_player2_death_head") != null)
                     {
                         var prefab_player2_death_head_script = GameObject.Find("prefab_player2_death_head").GetComponent<prefab_player2_death>();
-                        sum_int = (int)prefab_player2_death_head_script.timer_death;
+                        sum_float = 4f - prefab_player2_death_head_script.timer_death;
+                        sum_int = (int)sum_float;
                         GetComponent<TMPro.TextMeshProUGUI>().text = "Death: " + sum_int.ToString();
                     }
                     if (GameObject.Find("prefab_player2_death_torso") != null)
                     {
                         var prefab_player2_death_torso_script = GameObject.Find("prefab_player2_death_torso").GetComponent<prefab_player2_death>();
-                        sum_int = (int)prefab_player2_death_torso_script.timer_death;
+                        sum_float = 4f - prefab_player2_death_torso_script.timer_death;
+                        sum_int = (int)sum_float;
                         GetComponent<TMPro.TextMeshProUGUI>().text = "Death: " + sum_int.ToString();
                     }
                     if (GameObject.Find("prefab_player2_death_limbs") != null)
                     {
                         var prefab_player2_death_limbs_script = GameObject.Find("prefab_player2_death_limbs").GetComponent<prefab_player2_death>();
-                        sum_int = (int)prefab_player2_death_limbs_script.timer_death;
+                        sum_float = 4f - prefab_player2_death_limbs_script.timer_death;
+                        sum_int = (int)sum_float;
                         GetComponent<TMPro.TextMeshProUGUI>().text = "Death: " + sum_int.ToString();
                     }
                     else

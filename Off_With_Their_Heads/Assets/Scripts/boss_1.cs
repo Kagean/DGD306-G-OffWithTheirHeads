@@ -12,7 +12,7 @@ public class boss_1 : MonoBehaviour
     public Rigidbody2D rigidbody;
     public SpriteRenderer spriterenderer;
     public bool is_active = false;
-    public int health = 20;
+    public int health = 30;
     void Start()
     {
         animator = GetComponent<Animator>();
