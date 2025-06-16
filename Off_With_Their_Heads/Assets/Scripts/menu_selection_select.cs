@@ -50,13 +50,13 @@ public class menu_selection_select : MonoBehaviour
     {
         if (!lock_p_movement)
         {
-            if (Input.GetKeyDown(keyboard_left) || (p_horizontal == 1 && !lock_p_joystick))
+            if (Input.GetKeyDown(keyboard_left) || (p_horizontal == -1 && !lock_p_joystick))
             {
                 lock_p_joystick = true;
                 index_col_p -= 1;
                 Check_Index(ref index_head_p, ref index_col_p, -1);
             }
-            else if (Input.GetKeyDown(keyboard_right) || (p_horizontal == -1 && !lock_p_joystick))
+            else if (Input.GetKeyDown(keyboard_right) || (p_horizontal == 1 && !lock_p_joystick))
             {
                 lock_p_joystick = true;
                 index_col_p += 1;

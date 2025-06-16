@@ -14,8 +14,6 @@ public class prefab_enemy : MonoBehaviour
     public Collider2D collider;
     public GameObject prefab_projectile_enemy_arrow_left;
     public GameObject prefab_projectile_enemy_arrow_right;
-    public GameObject prefab_projectile_enemy_cannonball_left;
-    public GameObject prefab_projectile_enemy_cannonball_right;
     public Rigidbody2D rigidbody;
     public SpriteRenderer spriterenderer;
     public bool is_active = false;
@@ -92,12 +90,12 @@ public class prefab_enemy : MonoBehaviour
                     if (is_faced_left)
                     {
                         rigidbody.velocity = new Vector2(0, -1f);
-                        prefab_projectile_enemy = prefab_projectile_enemy_cannonball_left;
+                        prefab_projectile_enemy = prefab_projectile_enemy_arrow_left;
                     }
                     else
                     {
                         rigidbody.velocity = new Vector2(0, -1f);
-                        prefab_projectile_enemy = prefab_projectile_enemy_cannonball_right;
+                        prefab_projectile_enemy = prefab_projectile_enemy_arrow_right;
                     }
                 }
                 else if (enemy == "elf")
@@ -155,7 +153,7 @@ public class prefab_enemy : MonoBehaviour
             if (0 >= health)
             {
                 var manager_game_script = GameObject.Find("manager_game").GetComponent<manager_game>();
-                manager_game_script.count_credit += 500;
+                manager_game_script.count_score += 500;
                 if (enemy == "dwarf")
                 {
                     lock_attack = true;

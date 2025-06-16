@@ -58,7 +58,7 @@ public class prefab_player2 : MonoBehaviour
             var prefab_player1_collider = GameObject.Find("prefab_player1(Clone)").GetComponent<Collider2D>();
             Physics2D.IgnoreCollision(collider, prefab_player1_collider);
         }
-        if ((Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.UpArrow)) || p2_horizontal == 1)
+        if ((Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.UpArrow)) || p2_horizontal == -1)
         {
             rigidbody.velocity = new Vector2(-speed_movement, rigidbody.velocity.y);
             if (lock_key)
@@ -71,7 +71,7 @@ public class prefab_player2 : MonoBehaviour
                 animation_state = "_walk";
             }
         }
-        else if ((Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.UpArrow)) || p2_horizontal == -1)
+        else if ((Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.UpArrow)) || p2_horizontal == 1)
         {
             rigidbody.velocity = new Vector2(speed_movement, rigidbody.velocity.y);
             if (lock_key)

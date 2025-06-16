@@ -53,7 +53,7 @@ public class prefab_player1 : MonoBehaviour
         var manager_game_script = GameObject.Find("manager_game").GetComponent<manager_game>();
         p1_horizontal = (int)Input.GetAxisRaw("p1_horizontal");
         p1_vertical = (int)Input.GetAxisRaw("p1_vertical");
-        if ((Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.W)) || p1_horizontal == 1)
+        if ((Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.W)) || p1_horizontal == -1)
         {
             rigidbody.velocity = new Vector2(-speed_movement, rigidbody.velocity.y);
             if (lock_key)
@@ -66,7 +66,7 @@ public class prefab_player1 : MonoBehaviour
                 animation_state = "_walk";
             }
         }
-        else if ((Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.W)) || p1_horizontal == -1)
+        else if ((Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.W)) || p1_horizontal == 1)
         {
             rigidbody.velocity = new Vector2(speed_movement, rigidbody.velocity.y);
             if (lock_key)
