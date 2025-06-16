@@ -89,12 +89,10 @@ public class prefab_enemy : MonoBehaviour
                     animator.CrossFade("enemy_" + enemy, 0f);
                     if (is_faced_left)
                     {
-                        rigidbody.velocity = new Vector2(0, -1f);
                         prefab_projectile_enemy = prefab_projectile_enemy_arrow_left;
                     }
                     else
                     {
-                        rigidbody.velocity = new Vector2(0, -1f);
                         prefab_projectile_enemy = prefab_projectile_enemy_arrow_right;
                     }
                 }
