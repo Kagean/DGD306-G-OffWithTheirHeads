@@ -181,7 +181,7 @@ public class prefab_enemy : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("ground") && enemy == "dwarf")
+        if ((collision.gameObject.CompareTag("ground") && enemy == "dwarf") || (collision.gameObject.CompareTag("enemy") && enemy == "dwarf"))
         {
             is_dwarf_destroyed = true;
             health = 0;
@@ -190,7 +190,7 @@ public class prefab_enemy : MonoBehaviour
         {
             animator.CrossFade("enemy_" + enemy, 0f);
         }
-        else if (collision.gameObject.CompareTag("wall") && enemy == "goblin")
+        else if ((collision.gameObject.CompareTag("wall") && enemy == "goblin") || (collision.gameObject.CompareTag("enemy") && enemy == "goblin"))
         {
             if (speed_movement == 6f)
             {
