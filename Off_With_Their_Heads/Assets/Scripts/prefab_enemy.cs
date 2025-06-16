@@ -89,6 +89,7 @@ public class prefab_enemy : MonoBehaviour
                     animator.CrossFade("enemy_" + enemy, 0f);
                     if (is_faced_left)
                     {
+                        spriterenderer.flipX = true;
                         prefab_projectile_enemy = prefab_projectile_enemy_arrow_left;
                     }
                     else
@@ -106,6 +107,7 @@ public class prefab_enemy : MonoBehaviour
                     animator.CrossFade("enemy_" + enemy, 0f);
                     if (is_faced_left)
                     {
+                        spriterenderer.flipX = true;
                         rigidbody.velocity = new Vector2(-4f, rigidbody.velocity.y);
                         prefab_projectile_enemy = prefab_projectile_enemy_arrow_left;
                     }
@@ -121,7 +123,7 @@ public class prefab_enemy : MonoBehaviour
                     lock_attack = true;
                     lock_movement = false;
                     health = 5;
-                    animator.CrossFade("enemy_" + enemy + "_jump", 0f);
+                    animator.CrossFade("enemy_" + enemy, 0f);
                     var enemy_goblin_collision_script = GetComponentInChildren<enemy_goblin_collision>();
                     enemy_goblin_collision_script.is_active = true;
                     if (is_faced_left)
