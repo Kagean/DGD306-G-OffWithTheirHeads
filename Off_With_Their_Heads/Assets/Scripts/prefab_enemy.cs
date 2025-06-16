@@ -84,7 +84,7 @@ public class prefab_enemy : MonoBehaviour
                     rigidbody.gravityScale = 0.2f;
                     lock_attack = false;
                     lock_movement = true;
-                    speed_attack = 1f;
+                    speed_attack = 1.5f;
                     health = 7;
                     animator.CrossFade("enemy_" + enemy, 0f);
                     if (is_faced_left)
@@ -103,7 +103,7 @@ public class prefab_enemy : MonoBehaviour
                     rigidbody.gravityScale = 2f;
                     lock_attack = false;
                     lock_movement = true;
-                    speed_attack = 0.75f;
+                    speed_attack = 1.5f;
                     health = 5;
                     animator.CrossFade("enemy_" + enemy, 0f);
                     if (is_faced_left)
