@@ -12321,7 +12321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5485580102823897399, guid: 1756e133c0194fe4a97f765a64c98347, type: 3}
       propertyPath: is_faced_left
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5485580102823897399, guid: 1756e133c0194fe4a97f765a64c98347, type: 3}
       propertyPath: is_dwarf_destroyed
@@ -18409,7 +18409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5485580102823897399, guid: 1756e133c0194fe4a97f765a64c98347, type: 3}
       propertyPath: is_faced_left
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5485580102823897399, guid: 1756e133c0194fe4a97f765a64c98347, type: 3}
       propertyPath: is_dwarf_destroyed

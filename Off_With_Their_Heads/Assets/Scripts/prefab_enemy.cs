@@ -81,7 +81,7 @@ public class prefab_enemy : MonoBehaviour
                 spriterenderer.enabled = true;
                 if (enemy == "dwarf")
                 {
-                    rigidbody.gravityScale = 0.2f;
+                    rigidbody.gravityScale = 0.02f;
                     lock_attack = false;
                     lock_movement = true;
                     speed_attack = 1.5f;

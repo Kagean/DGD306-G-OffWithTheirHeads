@@ -43,14 +43,14 @@ public class camera_settings : MonoBehaviour
         {
             if (transform.position.y > prefab_player_lead.transform.position.y)
             {
-                transform.position = new Vector3(transform.position.x, prefab_player_lead.transform.position.y + 1.5f, transform.position.z);
+                transform.position = new Vector3(transform.position.x, prefab_player_lead.transform.position.y + 1f, transform.position.z);
             }
         }
         if (!lock_direction_up)
         {
             if (prefab_player_lead.transform.position.y > transform.position.y)
             {
-                transform.position = new Vector3(transform.position.x, prefab_player_lead.transform.position.y + 1.5f, transform.position.z);
+                transform.position = new Vector3(transform.position.x, prefab_player_lead.transform.position.y + 1f, transform.position.z);
             }
         }
     }

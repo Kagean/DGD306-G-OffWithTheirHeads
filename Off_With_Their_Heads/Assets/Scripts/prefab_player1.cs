@@ -79,7 +79,7 @@ public class prefab_player1 : MonoBehaviour
                 animation_state = "_walk";
             }
         }
-        else if ((Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) || p1_vertical == 1)
+        else if ((Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) || p1_vertical == -1)
         {
             if (lock_key)
             {
